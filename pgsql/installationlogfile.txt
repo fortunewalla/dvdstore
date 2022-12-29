@@ -1,0 +1,265 @@
+C:\ds2\pgsqlds2>pgsqlds2_create_all.bat
+
+C:\ds2\pgsqlds2>rem # pgsqlds2_create_all.bat
+
+C:\ds2\pgsqlds2>rem # start in ./ds2/pgsqlds2
+
+C:\ds2\pgsqlds2>rem CONNSTR="-h localhost -p 5432"
+
+C:\ds2\pgsqlds2>rem # If using vFabrid Data Director vPostgres then connection string will look like this
+
+C:\ds2\pgsqlds2>rem # CONNSTR="-h {cc25670-1854-4476-9764-c384759f93d}.10.10.10.10 -p 5432"
+
+C:\ds2\pgsqlds2>rem DBNAME=ds2
+
+C:\ds2\pgsqlds2>rem SYSDBA=dbowner
+
+C:\ds2\pgsqlds2>set PGPASSWORD=dbowner
+
+C:\ds2\pgsqlds2>rem we need to use create extension instead of createlang
+
+C:\ds2\pgsqlds2>rem createlang plpgsql ds2
+
+C:\ds2\pgsqlds2>cd build
+
+C:\ds2\pgsqlds2\build>rem # Assumes DB and SYSDBA are already created
+
+C:\ds2\pgsqlds2\build>rem # If building on vFabric Data Director vPostgres then you will need to comment out
+
+C:\ds2\pgsqlds2\build>rem #     pgsqlds2_create_db.sql line becuase the DB is already created
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U postgres -d postgres  0<pgsqlds2_create_db2.sql
+NOTICE:  database "ds2" does not exist, skipping
+DROP DATABASE
+CREATE DATABASE
+CREATE ROLE
+ALTER ROLE
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_delete_all2.sql
+ERROR:  relation "customers" does not exist
+ERROR:  relation "orders" does not exist
+ERROR:  relation "orderlines" does not exist
+ERROR:  relation "cust_hist" does not exist
+ERROR:  relation "inventory" does not exist
+ERROR:  relation "products" does not exist
+NOTICE:  table "inventory" does not exist, skipping
+NOTICE:  table "customers" does not exist, skipping
+NOTICE:  table "orders" does not exist, skipping
+NOTICE:  table "orderlines" does not exist, skipping
+NOTICE:  table "cust_hist" does not exist, skipping
+DROP TABLE
+NOTICE:  table "products" does not exist, skipping
+NOTICE:  table "categories" does not exist, skipping
+NOTICE:  table "reorder" does not exist, skipping
+DROP TABLE
+ERROR:  relation "inventory" does not exist
+ERROR:  role "web" does not exist
+ERROR:  role "web" does not exist
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_create_tbl2.sql
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+CREATE TABLE
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_create_sp2.sql
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE FUNCTION
+
+C:\ds2\pgsqlds2\build>cd ..\load\cust
+
+C:\ds2\pgsqlds2\load\cust>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_load_cust2.sql
+ALTER TABLE
+COPY 10000
+COPY 10000
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\cust>cd ..\orders
+
+C:\ds2\pgsqlds2\load\orders>psql -h localhost -U dbowner -d ds2   0<pgsqlds2_load_orders2.sql
+ALTER TABLE
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+COPY 1000
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\orders>psql -h localhost -U dbowner -d ds2   0<pgsqlds2_load_orderlines2.sql
+ALTER TABLE
+COPY 5083
+COPY 5001
+COPY 5164
+COPY 4947
+COPY 5022
+COPY 5065
+COPY 5010
+COPY 4942
+COPY 5010
+COPY 5163
+COPY 4992
+COPY 4951
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\orders>psql -h localhost -U dbowner -d ds2   0<pgsqlds2_load_cust_hist2.sql
+ALTER TABLE
+COPY 5083
+COPY 5001
+COPY 5164
+COPY 4947
+COPY 5022
+COPY 5065
+COPY 5010
+COPY 4942
+COPY 5010
+COPY 5163
+COPY 4992
+COPY 4951
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\orders>cd ..\prod
+
+C:\ds2\pgsqlds2\load\prod>psql -h localhost -U dbowner -d ds2   0<pgsqlds2_load_prod2.sql
+ALTER TABLE
+COPY 10000
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\prod>psql -h localhost -U dbowner -d ds2   0<pgsqlds2_load_inv2.sql
+ALTER TABLE
+COPY 10000
+ALTER TABLE
+
+C:\ds2\pgsqlds2\load\prod>cd ..\..\build
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_create_ind2.sql
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+ALTER TABLE
+CREATE INDEX
+ALTER TABLE
+CREATE INDEX
+ALTER TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_create_trig2.sql
+CREATE FUNCTION
+CREATE TRIGGER
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_reset_seq2.sql
+ setval
+--------
+     16
+(1 row)
+
+ setval
+--------
+  20000
+(1 row)
+
+ setval
+--------
+  12000
+(1 row)
+
+ setval
+--------
+  10000
+(1 row)
+
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2  0<pgsqlds2_create_user2.sql
+CREATE ROLE
+GRANT
+GRANT
+GRANT
+
+C:\ds2\pgsqlds2\build>psql -h localhost -U dbowner -d ds2 -c "ANALYZE;"
+ANALYZE
+C:\ds2\pgsqlds2\build>psql -u dbowner -d ds2
+psql: illegal option -- u
+Try "psql --help" for more information.
+
+C:\ds2\pgsqlds2\build>psql -R dbowner -d ds2
+psql (14.6)
+Type "help" for help.
+
+ds2=# ^D
+ds2-# ^X
+ds2-# quit
+Use \q to quit.
+ds2-# \q
+
+C:\ds2\pgsqlds2\build>psql -U dbowner -d ds2
+psql (14.6)
+Type "help" for help.
+
+ds2=# \dt
+          List of relations
+ Schema |    Name    | Type  | Owner
+--------+------------+-------+-------
+ public | categories | table | dbowner
+ public | cust_hist  | table | dbowner
+ public | customers  | table | dbowner
+ public | inventory  | table | dbowner
+ public | orderlines | table | dbowner
+ public | orders     | table | dbowner
+ public | products   | table | dbowner
+ public | reorder    | table | dbowner
+(8 rows)
+
+
+ds2=# select count(*) from customers;
+ count
+-------
+ 20000
+(1 row)
+
+
+ds2=# select count(*) from orders;
+ count
+-------
+ 12000
+(1 row)
+
+
+ds2=# select count(*) from products;
+ count
+-------
+ 10000
+(1 row)
