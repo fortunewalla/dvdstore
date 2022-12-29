@@ -1,0 +1,31 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "products",
+        "columns": [
+            "PROD_ID",
+            "CATEGORY",
+            "TITLE",
+            "ACTOR",
+            "PRICE",
+            "SPECIAL",
+            "COMMON_PROD_ID"
+        ],
+        "primaryIndex": "PROD_ID",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": [
+        "PROD_ID"
+    ]
+}

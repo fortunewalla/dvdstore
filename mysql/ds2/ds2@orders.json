@@ -1,0 +1,30 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "orders",
+        "columns": [
+            "ORDERID",
+            "ORDERDATE",
+            "CUSTOMERID",
+            "NETAMOUNT",
+            "TAX",
+            "TOTALAMOUNT"
+        ],
+        "primaryIndex": "ORDERID",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": [
+        "ORDERID"
+    ]
+}

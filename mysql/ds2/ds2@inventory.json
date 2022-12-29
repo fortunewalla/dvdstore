@@ -1,0 +1,27 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "inventory",
+        "columns": [
+            "PROD_ID",
+            "QUAN_IN_STOCK",
+            "SALES"
+        ],
+        "primaryIndex": "PROD_ID",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": [
+        "PROD_ID"
+    ]
+}

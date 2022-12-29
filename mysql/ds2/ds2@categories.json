@@ -1,0 +1,26 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "categories",
+        "columns": [
+            "CATEGORY",
+            "CATEGORYNAME"
+        ],
+        "primaryIndex": "CATEGORY",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": [
+        "CATEGORY"
+    ]
+}

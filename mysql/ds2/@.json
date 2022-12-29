@@ -1,0 +1,25 @@
+{
+    "dumper": "mysqlsh Ver 8.0.26 for Win64 on x86_64 - for MySQL 8.0.26 (MySQL Community Server (GPL))",
+    "version": "1.0.2",
+    "origin": "dumpSchemas",
+    "schemas": [
+        "ds2"
+    ],
+    "basenames": {
+        "ds2": "ds2"
+    },
+    "defaultCharacterSet": "utf8mb4",
+    "tzUtc": true,
+    "bytesPerChunk": 200000000,
+    "user": "remo",
+    "hostname": "beast",
+    "server": "beast",
+    "serverVersion": "8.0.31",
+    "binlogFile": "binlog.000012",
+    "binlogPosition": 5798350,
+    "gtidExecuted": "",
+    "gtidExecutedInconsistent": false,
+    "consistent": true,
+    "compatibilityOptions": [],
+    "begin": "2022-12-28 22:50:56"
+}

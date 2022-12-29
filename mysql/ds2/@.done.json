@@ -1,0 +1,26 @@
+{
+    "end": "2022-12-28 22:50:57",
+    "dataBytes": 6592512,
+    "tableDataBytes": {
+        "ds2": {
+            "inventory": 113269,
+            "categories": 158,
+            "products": 489824,
+            "reorder": 0,
+            "customers": 3064998,
+            "cust_hist": 929948,
+            "orders": 488016,
+            "orderlines": 1506299
+        }
+    },
+    "chunkFileBytes": {
+        "ds2@products@@0.tsv.zst": 489824,
+        "ds2@inventory@@0.tsv.zst": 113269,
+        "ds2@cust_hist.tsv.zst": 929948,
+        "ds2@categories@@0.tsv.zst": 158,
+        "ds2@orders@@0.tsv.zst": 488016,
+        "ds2@customers@@0.tsv.zst": 3064998,
+        "ds2@reorder.tsv.zst": 0,
+        "ds2@orderlines@@0.tsv.zst": 1506299
+    }
+}

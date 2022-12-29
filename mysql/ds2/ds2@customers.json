@@ -1,0 +1,44 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "customers",
+        "columns": [
+            "CUSTOMERID",
+            "FIRSTNAME",
+            "LASTNAME",
+            "ADDRESS1",
+            "ADDRESS2",
+            "CITY",
+            "STATE",
+            "ZIP",
+            "COUNTRY",
+            "REGION",
+            "EMAIL",
+            "PHONE",
+            "CREDITCARDTYPE",
+            "CREDITCARD",
+            "CREDITCARDEXPIRATION",
+            "USERNAME",
+            "PASSWORD",
+            "AGE",
+            "INCOME",
+            "GENDER"
+        ],
+        "primaryIndex": "CUSTOMERID",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": [
+        "CUSTOMERID"
+    ]
+}

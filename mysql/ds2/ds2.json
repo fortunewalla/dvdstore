@@ -1,0 +1,32 @@
+{
+    "schema": "ds2",
+    "includesDdl": true,
+    "includesViewsDdl": true,
+    "includesData": true,
+    "tables": [
+        "inventory",
+        "products",
+        "categories",
+        "reorder",
+        "customers",
+        "cust_hist",
+        "orders",
+        "orderlines"
+    ],
+    "views": [],
+    "events": [],
+    "functions": [],
+    "procedures": [
+        "NEW_CUSTOMER"
+    ],
+    "basenames": {
+        "inventory": "ds2@inventory",
+        "products": "ds2@products",
+        "categories": "ds2@categories",
+        "reorder": "ds2@reorder",
+        "customers": "ds2@customers",
+        "cust_hist": "ds2@cust_hist",
+        "orders": "ds2@orders",
+        "orderlines": "ds2@orderlines"
+    }
+}

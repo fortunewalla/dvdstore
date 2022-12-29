@@ -1,0 +1,27 @@
+{
+    "options": {
+        "schema": "ds2",
+        "table": "orderlines",
+        "columns": [
+            "ORDERLINEID",
+            "ORDERID",
+            "PROD_ID",
+            "QUANTITY",
+            "ORDERDATE"
+        ],
+        "primaryIndex": "",
+        "defaultCharacterSet": "utf8mb4",
+        "fieldsTerminatedBy": "\t",
+        "fieldsEnclosedBy": "",
+        "fieldsOptionallyEnclosed": false,
+        "fieldsEscapedBy": "\\",
+        "linesTerminatedBy": "\n"
+    },
+    "triggers": [],
+    "includesData": true,
+    "includesDdl": true,
+    "extension": "tsv.zst",
+    "chunking": true,
+    "compression": "zstd",
+    "primaryIndex": []
+}
