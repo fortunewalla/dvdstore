@@ -75,7 +75,28 @@ pg_dump -h localhost -U remo -d ds2 -c -C -Fd -f dss
 Database Comparison between mysql & postgresql
 
 ```
-mysql>
+
+mysql> SELECT CONCAT(
+    'SELECT "', 
+    table_name, 
+    '" AS table_name, COUNT(*) AS exact_row_count FROM `', 
+    table_schema,
+    '`.`',
+    table_name, 
+    '` UNION '
+) 
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE table_schema = 'ds2';
+
+mysql> SELECT "categories" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`categories` UNION
+SELECT "cust_hist" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`cust_hist` UNION  
+SELECT "customers" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`customers` UNION  
+SELECT "inventory" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`inventory` UNION  
+SELECT "orderlines" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`orderlines` UNION
+SELECT "orders" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`orders` UNION    
+SELECT "products" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`products` UNION
+SELECT "reorder" AS table_name, COUNT(*) AS exact_row_count FROM `ds2`.`reorder`;
+
 +------------+-----------------+
 | table_name | exact_row_count |
 +------------+-----------------+
@@ -90,7 +111,8 @@ mysql>
 +------------+-----------------+
 8 rows in set (1.67 sec)
 
-ds2-#
+ds2-# SELECT  nspname, proname FROM pg_catalog.pg_namespace JOIN pg_catalog.pg_proc ON pronamespace = pg_namespace.oid WHERE nspname = 'public';
+
  schemaname |  relname   | n_live_tup
 ------------+------------+------------
  public     | categories |         16
